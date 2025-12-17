@@ -30,8 +30,8 @@ RDF_FORMAT_TURTLE = 'turtle'
 
 DEPRECATED_CONTRIBUTOR_IDS = {
     # key: old value || value: new value
-    'http://dcat-ap.de/def/contributors/bundesamtFuerMaterialforschungUndPruefung':
-    'http://dcat-ap.de/def/contributors/bundesanstaltFuerMaterialforschungUndPruefung'}
+    'http://dcat-ap.de/def/contributors/bundesministeriumFuerWirtschaftUndKlimaschutz':
+    'http://dcat-ap.de/def/contributors/bundesministeriumFuerWirtschaftUndEnergie'}
 
 _user = None
 

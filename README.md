@@ -70,10 +70,10 @@ parameter to the harvest source configurations:
 This value will then be used to identify datasets from the same source and to update/delete them consistently.
 If this use case doesn't apply to you, you don't need to add this parameter to the harvest source configuration.
 
-### Skipping datasets which do not contain any resources
-Skipping datasets which do not contain any resources can be activated by setting the optional
+### Skipping datasets which does not contain any resources
+Skipping datasets which does not contain any resources can be activated by setting the optional
 configuration parameter `resources_required` in the harvest source configuration.
-Already existent datasets without resources will be deleted. Add the following parameter into the harvest source
+Already existent datasets will not be skipped. Add the following parameter into the harvest source
 configuration:
 
     {"resources_required": true}

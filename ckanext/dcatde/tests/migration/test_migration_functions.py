@@ -198,9 +198,9 @@ class TestMigrationFunctions(unittest.TestCase):
         self.migrations.groups(test_ds)
 
         self.assertListEqual(test_ds['groups'],
-                             [{'name': 'soci', 'id': 'soci'},
-                              {'name': 'educ', 'id': 'educ'},
-                              {'name': 'tech', 'id': 'tech'}],
+                             [{'name': 'soci'},
+                              {'name': 'educ'},
+                              {'name': 'tech'}],
                              "Group mapping failed")
 
     def test_temporal_coverage_from(self):

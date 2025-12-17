@@ -1,5 +1,13 @@
 # Changelog
 
+## v6.11.0 2025-12-15
+
+* Changed group id generation to be compatible with CKAN 2.11 ([#33](https://github.com/GovDataOfficial/ckanext-dcatde/issues/33))
+
+## v6.10.1 2025-08-28
+
+* Changed deprecated contributorID from bundesministeriumFuerWirtschaftUndKlimaschutz to bundesministeriumFuerWirtschaftUndEnergie
+
 ## v6.10.0 2025-07-28
 
 * The duplicate detection is now using the CKAN database instead of the solr index to avoid data inconsistencies. ([#30](https://github.com/GovDataOfficial/ckanext-dcatde/issues/30))

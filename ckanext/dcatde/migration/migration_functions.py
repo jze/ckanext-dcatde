@@ -137,7 +137,7 @@ class MigrationFunctions(object):
 
                     if themes is not None:
                         for theme in themes:
-                            dataset['groups'].append({'id': theme, 'name': theme})
+                            dataset['groups'].append({'name': theme})
                 elif group_name not in self.new_groups:
                     util.log_error(dataset, u'INVALID: non-OGD-Category found: ' + str(group_name))
 
