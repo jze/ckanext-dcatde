@@ -1,5 +1,26 @@
 # Changelog
 
+## v6.11.0 2025-12-15
+
+* Changed group id generation to be compatible with CKAN 2.11 ([#33](https://github.com/GovDataOfficial/ckanext-dcatde/issues/33))
+
+## v6.10.1 2025-08-28
+
+* Changed deprecated contributorID from bundesministeriumFuerWirtschaftUndKlimaschutz to bundesministeriumFuerWirtschaftUndEnergie
+
+## v6.10.0 2025-07-28
+
+* The duplicate detection is now using the CKAN database instead of the solr index to avoid data inconsistencies. ([#30](https://github.com/GovDataOfficial/ckanext-dcatde/issues/30))
+* Makes the harvester config option `harvested_portal` optional and updates the README.md with information about it. ([#27](https://github.com/GovDataOfficial/ckanext-dcatde/issues/27))
+
+## v6.9.0 2025-03-24
+
+* The DCAT-AP.de profile class DCATdeProfile now inherits from EuropeanDCATAP2Profile instead of RDFProfile.
+  **NOTICE:** This requires an modification at the line `ckanext.dcat.rdf.profiles` in the CKAN configuration. The value `euro_dcat_ap_2` has to be removed, see [README](./README.md#getting-started)
+* Updates ckanext-dcat to version 2.3.0
+* Fixes processing of DCAT.contactPoint ([#24](https://github.com/GovDataOfficial/ckanext-dcatde/issues/24))
+* Updates the README.md with information about the config parameter `ckanext.dcatde.urls.dcat_licenses_upgrade_mapping` ([#28](https://github.com/GovDataOfficial/ckanext-dcatde/issues/28))
+
 ## v6.8.3 2024-08-26
 
 * Adds error handling for the SearchIndexError exception

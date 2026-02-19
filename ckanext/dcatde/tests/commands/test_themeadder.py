@@ -71,7 +71,7 @@ class GroupHelper(object):
         return []
 
     def group_purge(self, context, gdict):
-        self.purged.append(gdict['name'])
+        self.purged.append(gdict['id'])
         return []
 
     def get_groups(self):

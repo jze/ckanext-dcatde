@@ -20,7 +20,7 @@ Using other versions may lead to logical inconsistencies.<br>
        (pyenv) $ pip install -e git+git://github.com/GovDataOfficial/ckanext-dcatde.git#egg=ckanext-dcatde
        (pyenv) $ cd src/ckanext-dcatde
        (pyenv) $ pip install -r base-requirements.txt -f requirements
-       (pyenv) $ python setup.py develop
+       (pyenv) $ python -m pip install -e .
 
    or
 
@@ -28,7 +28,7 @@ Using other versions may lead to logical inconsistencies.<br>
        (pyenv) $ pip install -e git+git://gitlab.opencode.de/fitko/govdata/ckanext-dcatde.git#egg=ckanext-dcatde
        (pyenv) $ cd src/ckanext-dcatde
        (pyenv) $ pip install -r base-requirements.txt -f requirements
-       (pyenv) $ python setup.py develop
+       (pyenv) $ python -m pip install -e .
 
 4. [Install](https://github.com/ckan/ckanext-harvest#installation) a specific version of the CKAN extension ckanext-harvest. (Only if you want to use the RDF harvester)<br>
 The recommended approach is to install the version of ckanext-dcat specified in the `optional-requirements.txt` [GitHub](https://github.com/GovDataOfficial/ckanext-dcatde/blob/master/optional-requirements.txt) or [Open CoDE](https://gitlab.opencode.de/fitko/govdata/ckanext-dcatde/-/blob/master/base-requirements.txt).
@@ -45,7 +45,7 @@ Using other versions may lead to logical inconsistencies.<br>
 
 6. Add the following parameter to your CKAN configuration file to activate the additional profile for DCAT-AP.de:
 
-       ckanext.dcat.rdf.profiles = euro_dcat_ap_2 dcatap_de
+       ckanext.dcat.rdf.profiles = dcatap_de
 
 ## RDF DCAT-AP.de Harvester
 If the plugin `dcatde_rdf_harvester` is activated an additional source type `DCAT-AP.de RDF Harvester` is selectable.
@@ -60,6 +60,15 @@ The value which will be used as default license can be defined by the
 configuration parameter `ckanext.dcatde.harvest.default_license`. Add the following parameter to your CKAN configuration file, e.g.:
 
     ckanext.dcatde.harvest.default_license = http://dcat-ap.de/def/licenses/other-closed
+
+### Harvesting datasets from a single source via multiple harvesters
+If you want to harvest datasets from a single source via multiple harvesters, it is recommended to add the following 
+parameter to the harvest source configurations:
+
+    {"harvested_portal": "<unique-portal-name>"}
+
+This value will then be used to identify datasets from the same source and to update/delete them consistently.
+If this use case doesn't apply to you, you don't need to add this parameter to the harvest source configuration.
 
 ### Skipping datasets which does not contain any resources
 Skipping datasets which does not contain any resources can be activated by setting the optional
@@ -110,6 +119,15 @@ You will find an example file here: [dcat_theme.json](./examples/dcat_theme.json
 If you want to create the standard dcat-ap categories as groups you can use the ckan command "dcatde_themeadder" by following the instructions:
 
     (pyenv) $ ckan --config=/etc/ckan/default/production.ini dcatde_themeadder
+
+## Upgrading licenses from DCAT-AP.de version v1.0 to v1.0.2
+In DCAT-AP.de version v1.0.2, the syntax of some license URIs has changed. 
+If you want to upgrade licenses which are still using the v1.0 syntax, you can add the following parameter to your CKAN configuration file:
+
+    ckanext.dcatde.urls.dcat_licenses_upgrade_mapping = file:///path/to/file/dcat_licenses_upgrade.json
+
+Once configured, the mapping of the licenses happens automatically during harvesting according to your customized mappings in this file.
+You can find an example file here: [dcat_licenses_upgrade.json](./examples/dcat_licenses_upgrade.json)
 
 ## Migrating ogd conform datasets to dcat-ap.de
 You need to add the following parameter to your CKAN configuration file:
