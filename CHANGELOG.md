@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.11.1 2026-03-25
+
+*  Fixes [#39](https://github.com/GovDataOfficial/ckanext-dcatde/issues/39)
+
 ## v6.11.0 2025-12-15
 
 * Changed group id generation to be compatible with CKAN 2.11 ([#33](https://github.com/GovDataOfficial/ckanext-dcatde/issues/33))
