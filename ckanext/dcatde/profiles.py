@@ -219,10 +219,10 @@ class DCATdeProfile(EuropeanDCATAP2Profile):
         """ Transforms DCAT-AP.de-Data to CKAN-Dictionary """
 
         # call super method
-        super(DCATdeProfile, self).parse_dataset(dataset_dict, dataset_ref)
+        dataset_dict = super(DCATdeProfile, self).parse_dataset(dataset_dict, dataset_ref)
 
         # DCAT-AP.de properties
-        self._parse_dataset_dcatapde(dataset_dict, dataset_ref)
+        return self._parse_dataset_dcatapde(dataset_dict, dataset_ref)
 
     def _parse_dataset_dcatapde(self, dataset_dict, dataset_ref):
         """ Transforms DCAT-AP.de-Data to CKAN-Dictionary """
